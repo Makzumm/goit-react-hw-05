@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { fetchFilmCast } from '../../api';
 
-function MovieReviews() {
+function MovieCast() {
     const { movieId } = useParams();
     const [credits, setCredist] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -24,9 +24,9 @@ function MovieReviews() {
         getCredist();
     }, [movieId]);
 
-    if (loading) return <p>Loading reviews...</p>;
+    if (loading) return <p>Loading credits...</p>;
     if (error) return <p>Error: {error}</p>;
-    if (credits.length === 0) return <p>No reviews available</p>;
+    if (credits.length === 0) return <p>No credits available</p>;
 
     return (
         <div>
@@ -39,4 +39,4 @@ function MovieReviews() {
     );
 }
 
-export default MovieReviews;
+export default MovieCast;
